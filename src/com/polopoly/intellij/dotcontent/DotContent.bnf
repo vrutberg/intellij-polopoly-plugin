@@ -1,0 +1,20 @@
+{
+  parserClass="com.polopoly.intellij.dotcontent.DotContentParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="DotContent"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.polopoly.intellij.dotcontent.psi"
+  psiImplPackage="com.polopoly.intellij.dotcontent.psi"
+
+  elementTypeHolderClass="com.polopoly.intellij.dotcontent.psi.DotContentTypes"
+  elementTypeClass="com.polopoly.intellij.dotcontent.DotContentElementType"
+  tokenTypeClass="com.polopoly.intellij.dotcontent.DotContentElementType"
+}
+
+dotContentFile ::= item_*
+
+private item_ ::= property|COMMENT|CRLF
+
+property ::= KEY SEPARATOR [ COMPONENTPATH ] VALUE
